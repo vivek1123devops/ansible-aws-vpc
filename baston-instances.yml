@@ -12,16 +12,15 @@
       ec2_key:
         name: yuvivi_2023
         region: "{{region}}"
-      register: keyout
+      register: key_out
 
 
     - name: store login key
       copy:
-       content: "{{keyout.key.private_key}}"
-       state: present
+       content: "{{key_out.key.private_key}}"
        dest: "./yuvivi_2023.pem"
        mode: 0600
-       when: keyout.changed
+      when: key_out.changed
 
     - name: create security group for baiston host
       ec2_group:
