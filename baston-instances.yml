@@ -35,8 +35,8 @@
              cidr_ip: "{{MYIP}}"
       register: BastionSG_out
 
-    - name: Creating Bastion Host
-      ec2:
+   - name: Creating Bastion Host
+     ec2:
        key_name: yuvivi_2023
        region: "{{region}}"
        instance_type: t2.micro
@@ -54,5 +54,5 @@
          Owner: DevOps Team
        group_id: "{{BastionSG_out.group_id}}"
        vpc_subnet_id: "{{pubsub1id}}"
-      register: bastionHost_out
+     register: bastionHost_out
 
