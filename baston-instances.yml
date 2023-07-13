@@ -35,7 +35,7 @@
              cidr_ip: "{{MYIP}}"
          register: BastionSG_out
 
-   - Creating Bastion Host
+   - name: Creating Bastion Host
      ec2:
        key_name: yuvivi_2023
        region: "{{region}}"
