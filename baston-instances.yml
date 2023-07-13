@@ -15,15 +15,15 @@
       register: keyout
 
 
-   - name: store login key
-     copy:
+    - name: store login key
+      copy:
        content: "{{keyout.key.private_key}}"
        dest: ./yuvivi_2023.pem
        mode: 0600
        when: keyout.changed
 
-   - name: create security group for baiston host
-     ec2_group:
+    - name: create security group for baiston host
+      ec2_group:
          name: Bastion-host-sg
          decription: Allow port 22 from everywhere and all
          region: "{{region}}"
@@ -35,8 +35,8 @@
              cidr_ip: "{{MYIP}}"
          register: BastionSG_out
 
-   - name: Creating Bastion Host
-     ec2:
+    - name: Creating Bastion Host
+      ec2:
        key_name: yuvivi_2023
        region: "{{region}}"
        instance_type: t2.micro
