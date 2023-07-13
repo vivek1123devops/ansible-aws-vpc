@@ -18,6 +18,7 @@
     - name: store login key
       copy:
        content: "{{keyout.key.private_key}}"
+       state: present
        dest: "./yuvivi_2023.pem"
        mode: 0600
        when: keyout.changed
