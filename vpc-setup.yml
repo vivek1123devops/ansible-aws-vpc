@@ -100,17 +100,17 @@
             Name: yuvi_IGW
       register: igw_out
 
-      - name: Set up public route table
-        ec2_route_table:
-          vpc_id: "{{ vpcout.vpc.id }}"
-          region: "{{ region }}"
-          tags:
-            Name:  yuvi-PubRT
-          subnets:
-            - "{{pubsub1_out.submet.id}}"
-            - "{{pubsub2_out.submet.id}}"
-            - "{{pubsub3_out.submet.id}}"
-          routes:
-            - dest: 0.0.0.0/0
-              gateway_id: "{{igw_out.gateway_id}}"
-        register: pubRT_out
+    - name: Set up public route table
+      ec2_route_table:
+         vpc_id: "{{ vpcout.vpc.id }}"
+         region: "{{ region }}"
+         tags:
+           Name:  yuvi-PubRT
+         subnets:
+           - "{{pubsub1_out.submet.id}}"
+           - "{{pubsub2_out.submet.id}}"
+           - "{{pubsub3_out.submet.id}}"
+         routes:
+           - dest: 0.0.0.0/0
+             gateway_id: "{{igw_out.gateway_id}}"
+      register: pubRT_out
