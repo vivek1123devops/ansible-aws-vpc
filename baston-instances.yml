@@ -1,0 +1,57 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: Import VPC variable
+      include_vars: vars/bastion_setup
+
+    - name: Import VPC setup variable
+      include_vars: vars/output_vars
+
+    - name: example ec2 key
+      ec2_key:
+        name: yuvivi_2023
+        region: "{{region}}"
+      register: keyout
+
+
+   - name: store login key
+     copy:
+       content: "{{keyout.key.private_key}}"
+       dest: ./yuvivi_2023.pem
+       mode: 0600
+       when: keyout.changed
+
+   - name: create security group for baiston host
+     ec2_group:
+         name: Bastion-host-sg
+         decription: Allow port 22 from everywhere and all
+         region: "{{region}}"
+         vpc_id: "{{vpcid}}"
+         rules:
+           - proto: tcp
+             from_port: 22
+             to_port: 22
+             cidr_ip: "{{MYIP}}"
+         register: BastionSG_out
+
+   - Creating Bastion Host
+     ec2:
+       key_name: yuvivi_2023
+       region: "{{region}}"
+       instance_type: t2.micro
+       image: "{{bastion_ami}}"
+       wait: yes
+       wait_timout: 300
+       instance_tags:
+          Name: "Bastion_host"
+          project: Yuviapp
+          owner: Devops team
+       exact_count: 1
+       count_tag:
+         Name: "Bastion_host"
+         Project: Yuviapp
+         Owner: DevOps Team
+       group_id: "{{BastionSG_out.group_id}}"
+     register: bastionHost_out
+
