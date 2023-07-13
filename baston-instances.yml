@@ -25,7 +25,7 @@
     - name: create security group for baiston host
       ec2_group:
          name: Bastion-host-sg
-         decription: Allow port 22 from everywhere and all
+         description: Allow port 22 from everywhere and all
          region: "{{region}}"
          vpc_id: "{{vpcid}}"
          rules:
