@@ -53,5 +53,5 @@
           Name: "Bastion_host"
           Project: Yuviapp
           Owner: DevOps Team
-      register: bastionHost_out
+
 
