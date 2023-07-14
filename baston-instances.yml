@@ -42,8 +42,17 @@
         instance_type: t2.micro
         image: "{{image}}"
         wait: yes
+        group: Bastion-host-sg
         wait_timeout: 300
-        count: 1
+        instance_tags:
+          Name: "Bastion_host"
+          project: Yuviapp
+          owner: Devops team
+        exact_count: 1
+        count_tag:
+          Name: "Bastion_host"
+          Project: Yuviapp
+          Owner: DevOps Team
         vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out
 
