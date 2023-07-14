@@ -39,11 +39,6 @@
       ec2:
         key_name: yuvk_2023
         region: "{{region}}"
-        image: "{{image}}"
-        wait: yes
-        group: Bastion-host-sg
-        wait_timeout: 300
-        count: 1
 
 
 
