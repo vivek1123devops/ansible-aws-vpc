@@ -38,6 +38,7 @@
     - name: Creating Bastion Host
       ec2:
         key_name: yuvk_2023
+        region: "{{region}}"
         instance_type: t2.micro
         image: "{{image}}"
         wait: yes
