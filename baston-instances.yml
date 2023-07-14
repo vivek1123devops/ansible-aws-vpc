@@ -39,6 +39,7 @@
       ec2:
         key_name: yuvk_2023
         region: "{{region}}"
+        image: "{{image}}"
 
 
 
