@@ -36,10 +36,14 @@
       register: BastionSG_out
 
     - name: Creating Bastion Host
-      ec2-instance:
-        key_name: yuvk_2023
+      ec2:
+        key_name: yuvki_2023
         region: "{{region}}"
+        instance_type: t2.micro
         image: "ami-069d73f3235b535bd"
+        wait: yes
+        count: 1
+        vpc_subnet_id: "{{pubsub1id}}"
 
 
 
