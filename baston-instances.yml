@@ -36,11 +36,11 @@
       register: BastionSG_out
 
     - name: Creating Bastion Host
-      ec2_instance:
+      ec2:
         key_name: yuvk_2023
         region: "{{region}}"
         instance_type: t2.micro
-        image_id: ami-069d73f3235b535bd
+        image_id: "{{image}}"
         wait: yes
         wait_timeout: 300
         instance_tags:
