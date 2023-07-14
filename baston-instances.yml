@@ -38,7 +38,7 @@
     - name: Creating Bastion Host
       ec2_instance:
          name: "Bastion_host"
-         key_name: yuvk_2023
+         key_name: yuvki_2023
          region: "{{region}}"
          vpc_subnet_id: "{{pubsub1id}}"
          instance_type: t2.micro
