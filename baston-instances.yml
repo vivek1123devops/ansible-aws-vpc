@@ -46,7 +46,7 @@
          image_id: "{{image}}"
          wait: yes
          wait_timeout: 300
-         count_tag:
+         tags:
            Name: "Bastion_host"
            Project: Yuviapp
            Owner: DevOps Team
