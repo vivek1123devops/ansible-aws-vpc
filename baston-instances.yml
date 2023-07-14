@@ -36,7 +36,7 @@
       register: BastionSG_out
 
     - name: Creating Bastion Host
-      ec2:
+      ec2_instance:
          key_name: yuvk_2023
          region: "{{region}}"
          vpc_subnet_id: "{{pubsub1id}}"
