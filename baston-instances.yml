@@ -39,7 +39,7 @@
       ec2:
         key_name: yuvk_2023
         region: "{{region}}"
-        instance_type: t2.micro
+        instance_type: a1.medium
         image: "{{image}}"
         wait: yes
         group: Bastion-host-sg
