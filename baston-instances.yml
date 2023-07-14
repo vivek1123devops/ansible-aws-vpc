@@ -39,7 +39,7 @@
       ec2:
         key_name: yuvk_2023
         region: "{{region}}"
-        instance_type: a1.medium
+        instance_type: t2.micro
         image: "{{image}}"
         wait: yes
         group: Bastion-host-sg
@@ -53,6 +53,5 @@
           Name: "Bastion_host"
           Project: Yuviapp
           Owner: DevOps Team
-        vpc_subnet_id: "{{pubsub1id}}"
       register: bastionHost_out
 
