@@ -39,11 +39,11 @@
     - name: Create security group for yuviapp stack
       ec2_group:
           name: yuviStack-sg
-               description: Allow port 22 from everywhere and allow port within sg
-               region: "{{region}}"
-               vpc_id: "{{vpcid}}"
-               purge_rules: no
-               rules:
+          description: Allow port 22 from everywhere and allow port within sg
+          region: "{{region}}"
+          vpc_id: "{{vpcid}}"
+          purge_rules: no
+          rules:
                  - proto: tcp
                    from_port: 80
                    to_port: 80
@@ -63,5 +63,5 @@
           vpc_id: "{{vpcid}}"
           purge_rules: no
           rules:
-            - proto: all
-              group_id: "{{yuviStackSG_out.group_id}}"
+           - proto: all
+             group_id: "{{yuviStackSG_out.group_id}}"
