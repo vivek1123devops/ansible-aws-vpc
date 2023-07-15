@@ -22,3 +22,35 @@
         dest: "./yuvistack_2023.pem"
         mode: 0600
       when: yuvistack_2023_out.changed
+
+    - name: Create security group for LoadBalancer
+      ec2-group:
+         name: yuviELB-sg
+         description: Allow port 80 from everywhere and allow port within sg
+         region: "{{region}}"
+         vpc_id: "{{vpcid}}"
+         rule:
+           - proto: tcp
+             from_port: 80
+             to_port: 80
+             cidr_ip: 0.0.0.0/0
+      register: yuviELBsg_out
+
+    - name: Create security group for yuviapp stack
+      ec2-group:
+          name: yuviStack-sg
+               description: Allow port 22 from everywhere and allow port within sg
+               region: "{{region}}"
+               vpc_id: "{{vpcid}}"
+               purge_rules: no
+               rules:
+                 - proto: tcp
+                   from_port: 80
+                   to_port: 80
+                   group_id: "{{yuviELBsg_out.group_id}}"
+
+                 - proto: tcp
+                   from_port: 22
+                   to_port: 22
+                   group_id: "{{BastionSGid}}"
+      register: yuviStackSG_out
