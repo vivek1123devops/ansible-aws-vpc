@@ -156,6 +156,80 @@
       register: mysql_out
 
     - debug:
-       var: mysql_out
+       var: mysql_out.instances[0].instance_id
 
+    - local_action:
+        module: ec2_elb_lb
+        name: "yuvi-elb"
+        region: "{{region}}"
+        state: present
+        instance_ids:
+          - "{{web01_out.instances[0].instance_id}}"
+        purge_instance_ids: true
+        security_group_ids: "{{yuviELBsg_out.group_id}}"
+        subnets:
+          - "{{ pubsub1id }}"
+          - "{{ pubsub2id }}"
+          - "{{ pubsub3id }}"
+        listeners:
+          - protocol: http #options are http, https, ssl, tcp
+            load_balancer_port: 80
+            instance_port: 80
+
+    - name: Insert/Update Hosts IP & Name
+      blockinfile:
+      path: provision-stack/group_vars/hostsip
+      block: |
+         web01_ip: {{ web01_out.instance[0].private_ip }}
+         app01_ip: {{ app01_out.instance[0].private_ip }}
+         rmq01_ip: {{ rmq01_out.instance[0].private_ip }}
+         mc01_ip: {{ Mem01_out.instance[0].private_ip }}
+         db01_ip: {{ mysql_out.instance[0].private_ip }}
+
+    - name: Copy login key to provision_stack directory
+      copy:
+        src: loginkey_yuvi.pem
+        dest: provision-stack/loginkey_yuvi.pem
+        mode: '0400'
+
+    - name: Insert/update Inventory file provision-stack
+      blockinfile:
+        path: provision-stack/inventory-yuvi
+        block: |
+           web01 ansible_host= {{web01_out.instances[0].private_ip }}
+           app01 ansible_host={{ app01_out.instances[0].private_ip }}
+           rmq01 ansible_host={{ rmq01_out.instances[0].private_ip }}
+           mc01 ansible_host={{ Mem01_out.instances[0].private_ip }}
+           db01 ansible_host={{ mysql_out.instances[0].private_ip }}
+           cntl ansible_host=127.0.0.1 ansible_connection=local
+
+          [websrvgrp]
+          web01
+
+          [appservpgrp]
+          app01
+
+          [rmqsrvgrp]
+          rmq01
+
+          [mcsrvgrp]
+          mc01
+
+          [dbsrvgrp]
+          db01
+
+          [control]
+          cntl
+
+          [stack_inst:children]
+          websrvgrp
+          appservpgrp
+          rmqsrvgrp
+          mcsrvgrp
+          dbsrvgrp
+
+          [stack_inst:vars]
+          ansible_user=ubuntu
+          ansible_ssh_private_key_file=loginkey_yuvi.pem
+          #ansible_python_interpreter=/usr/bin/python3
 
