@@ -42,7 +42,7 @@
           description: Allow port 22 from everywhere and allow port within sg
           region: "{{region}}"
           vpc_id: "{{vpcid}}"
-          purge_rules: no
+          purge_rule: no
           rule:
                  - proto: tcp
                    from_port: 80
@@ -61,7 +61,7 @@
           description: allow port 22 from everywhere and all port within sg
           region: "{{region}}"
           vpc_id: "{{vpcid}}"
-          purge_rules: no
+          purge_rule: no
           rule:
            - proto: all
              group_id: "{{yuviStackSG_out.group_id}}"
