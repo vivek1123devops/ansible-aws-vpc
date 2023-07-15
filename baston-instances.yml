@@ -52,5 +52,12 @@
            Owner: DevOps Team
       register: bastionHost_out
 
+    - name: Insert/update "bastionSG" in vars/output_vars
+      blockinfile:
+        path: vars/output_vars
+        backup: yes
+        block: |
+          BastionSGid: {{BastionSG_out.group_id}}
+
 
 
