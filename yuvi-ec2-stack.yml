@@ -155,4 +155,7 @@
             Owner: DevOps Team
      register: mysql_out
 
+   - debug:
+       var: mysql_out
+
 
