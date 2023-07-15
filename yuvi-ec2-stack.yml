@@ -169,8 +169,6 @@
         security_group_ids: "{{yuviELBsg_out.group_id}}"
         subnets:
           - "{{ pubsub1id }}"
-          - "{{ pubsub2id }}"
-          - "{{ pubsub3id }}"
         listeners:
           - protocol: http #options are http, https, ssl, tcp
             load_balancer_port: 80
