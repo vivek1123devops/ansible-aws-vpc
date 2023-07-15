@@ -1,0 +1,24 @@
+---
+- name: setup Yuviapp stack
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Import VPC variable
+    include_vars: vars/output_vars
+
+    - name: Import yuvi setup variable
+      include_vars: vars/yuvistackvars
+
+    - name: create yuvi ec2 key
+      ec2_key:
+       name: yuvistack_2023
+       region: "{{region}}"
+      register: yuvistack_2023_out
+
+    - name: store login key
+      copy:
+        content: "{{yuvistack_2023_out.key.private_key}}"
+        dest: "./yuvistack_2023.pem"
+        mode: 0600
+        when: yuvistack_2023_out.changed

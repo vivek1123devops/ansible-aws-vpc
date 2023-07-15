@@ -1,0 +1,13 @@
+nginx_ami: ami-0bb220fc4bffd88dd
+tomcat_ami: ami-0bb220fc4bffd88dd
+memcache_ami: ami-0bb220fc4bffd88dd
+rmq_ami: ami-0bb220fc4bffd88dd
+mysql_ami: ami-0bb220fc4bffd88dd
+
+# Region Name
+region: "us-east-2"
+
+#Zone Names
+zone1: us-east-2a
+zone2: us-east-2b
+zone3: us-east-2c
