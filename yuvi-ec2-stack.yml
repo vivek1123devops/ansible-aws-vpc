@@ -178,8 +178,8 @@
 
     - name: Insert/Update Hosts IP & Name
       blockinfile:
-      path: provision-stack/group_vars/hostsip
-      block: |
+        path: provision-stack/group_vars/hostsip
+        block: |
          web01_ip: {{ web01_out.instance[0].private_ip }}
          app01_ip: {{ app01_out.instance[0].private_ip }}
          rmq01_ip: {{ rmq01_out.instance[0].private_ip }}
