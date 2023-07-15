@@ -194,11 +194,11 @@
       blockinfile:
         path: provision-stack/inventory-yuvi
         block: |
-           web01 ansible_host= {{web01_out.instances[0].private_ip }}
-           app01 ansible_host={{ app01_out.instances[0].private_ip }}
-           rmq01 ansible_host={{ rmq01_out.instances[0].private_ip }}
-           mc01 ansible_host={{ Mem01_out.instances[0].private_ip }}
-           db01 ansible_host={{ mysql_out.instances[0].private_ip }}
+           web01 ansible_host= {{web01_out.instances[0].private_ip_address }}
+           app01 ansible_host={{ app01_out.instances[0].private_ip_address }}
+           rmq01 ansible_host={{ rmq01_out.instances[0].private_ip_address }}
+           mc01 ansible_host={{ Mem01_out.instances[0].private_ip_address }}
+           db01 ansible_host={{ mysql_out.instances[0].private_ip_address }}
            cntl ansible_host=127.0.0.1 ansible_connection=local
 
            [websrvgrp]
