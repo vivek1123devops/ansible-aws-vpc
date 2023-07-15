@@ -178,11 +178,11 @@
       blockinfile:
         path: provision-stack/group_vars/hostsip
         block: |
-         web01_ip: {{ web01_out.instance[0].private_ip }}
-         app01_ip: {{ app01_out.instance[0].private_ip }}
-         rmq01_ip: {{ rmq01_out.instance[0].private_ip }}
-         mc01_ip: {{ Mem01_out.instance[0].private_ip }}
-         db01_ip: {{ mysql_out.instance[0].private_ip }}
+          web01_ip: {{ web01_out.instance[0].private_ip }}
+          app01_ip: {{ app01_out.instance[0].private_ip }}
+          rmq01_ip: {{ rmq01_out.instance[0].private_ip }}
+          mc01_ip: {{ Mem01_out.instance[0].private_ip }}
+          db01_ip: {{ mysql_out.instance[0].private_ip }}
 
     - name: Copy login key to provision_stack directory
       copy:
