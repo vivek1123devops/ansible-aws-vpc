@@ -83,8 +83,8 @@
            Owner: DevOps Team
       register: web01_out
 
-   - name: Creating Tomcat instance
-     ec2_instance:
+    - name: Creating Tomcat instance
+      ec2_instance:
           name: "App01-Tomcat"
           key_name: yuvki_2023
           region: "{{region}}"
@@ -98,10 +98,10 @@
             Name: "App01-Nginx"
             Project: Yuviapp
             Owner: DevOps Team
-     register: app01_out
+      register: app01_out
 
-   - name: Creating Memcache instance
-     ec2_instance:
+    - name: Creating Memcache instance
+      ec2_instance:
           name: "Mc01-Memcache"
           key_name: yuvki_2023
           region: "{{region}}"
@@ -115,12 +115,12 @@
             Name: "Mc01-Memcache"
             Project: Yuviapp
             Owner: DevOps Team
-     register: Mem01_out
+      register: Mem01_out
 
 
 
-   - name: Creating RabbitMQ instance
-     ec2_instance:
+    - name: Creating RabbitMQ instance
+      ec2_instance:
           name: "RMQ01-RabbitMQ"
           key_name: yuvki_2023
           region: "{{region}}"
@@ -134,12 +134,12 @@
             Name: "RMQ01-RabbitMQ"
             Project: Yuviapp
             Owner: DevOps Team
-     register: rmq01_out
+      register: rmq01_out
 
 
 
-   - name: Creating Mysql instance
-     ec2_instance:
+    - name: Creating Mysql instance
+      ec2_instance:
           name: "Mysql"
           key_name: yuvki_2023
           region: "{{region}}"
@@ -153,9 +153,9 @@
             Name: "Mysql"
             Project: Yuviapp
             Owner: DevOps Team
-     register: mysql_out
+      register: mysql_out
 
-   - debug:
+    - debug:
        var: mysql_out
 
 
