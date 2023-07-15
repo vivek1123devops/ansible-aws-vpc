@@ -65,3 +65,94 @@
           rules:
            - proto: all
              group_id: "{{yuviStackSG_out.group_id}}"
+
+   - name: Creating nginx instance
+     ec2_instance:
+         name: "Web01-Nginx"
+         key_name: yuvki_2023
+         region: "{{region}}"
+         vpc_subnet_id: "{{privsub1id}}"
+         instance_type: t2.micro
+         security_group: yuviStack-sg
+         image_id: "{{nginx_ami}}"
+         wait: yes
+         wait_timeout: 300
+         tags:
+           Name: "Web01-Nginx"
+           Project: Yuviapp
+           Owner: DevOps Team
+     register: web01_out
+
+   - name: Creating Tomcat instance
+     ec2_instance:
+          name: "App01-Tomcat"
+          key_name: yuvki_2023
+          region: "{{region}}"
+          vpc_subnet_id: "{{privsub1id}}"
+          instance_type: t2.micro
+          security_group: yuviStack-sg
+          image_id: "{{tomcat_ami}}"
+          wait: yes
+          wait_timeout: 300
+          tags:
+            Name: "App01-Nginx"
+            Project: Yuviapp
+            Owner: DevOps Team
+     register: app01_out
+
+   - name: Creating Memcache instance
+     ec2_instance:
+          name: "Mc01-Memcache"
+          key_name: yuvki_2023
+          region: "{{region}}"
+          vpc_subnet_id: "{{privsub1id}}"
+          instance_type: t2.micro
+          security_group: yuviStack-sg
+          image_id: "{{memcache_ami}}"
+          wait: yes
+          wait_timeout: 300
+          tags:
+            Name: "Mc01-Memcache"
+            Project: Yuviapp
+            Owner: DevOps Team
+     register: Mem01_out
+
+
+
+   - name: Creating RabbitMQ instance
+     ec2_instance:
+          name: "RMQ01-RabbitMQ"
+          key_name: yuvki_2023
+          region: "{{region}}"
+          vpc_subnet_id: "{{privsub1id}}"
+          instance_type: t2.micro
+          security_group: yuviStack-sg
+          image_id: "{{rmq_ami}}"
+          wait: yes
+          wait_timeout: 300
+          tags:
+            Name: "RMQ01-RabbitMQ"
+            Project: Yuviapp
+            Owner: DevOps Team
+     register: rmq01_out
+
+
+
+   - name: Creating Mysql instance
+     ec2_instance:
+          name: "Mysql"
+          key_name: yuvki_2023
+          region: "{{region}}"
+          vpc_subnet_id: "{{privsub1id}}"
+          instance_type: t2.micro
+          security_group: yuviStack-sg
+          image_id: "{{mysql_ami}}"
+          wait: yes
+          wait_timeout: 300
+          tags:
+            Name: "Mysql"
+            Project: Yuviapp
+            Owner: DevOps Team
+     register: mysql_out
+
+
