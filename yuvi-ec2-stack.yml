@@ -5,7 +5,7 @@
   gather_facts: no
   tasks:
     - name: Import VPC variable
-    include_vars: vars/output_vars
+      include_vars: vars/output_vars
 
     - name: Import yuvi setup variable
       include_vars: vars/yuvistackvars
