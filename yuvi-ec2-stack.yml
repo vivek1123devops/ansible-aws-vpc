@@ -21,4 +21,4 @@
         content: "{{yuvistack_2023_out.key.private_key}}"
         dest: "./yuvistack_2023.pem"
         mode: 0600
-        when: yuvistack_2023_out.changed
+      when: yuvistack_2023_out.changed
