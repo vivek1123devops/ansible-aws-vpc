@@ -37,7 +37,7 @@
       register: yuviELBsg_out
 
     - name: Create security group for yuviapp stack
-      ec2-group:
+      ec2_group:
           name: yuviStack-sg
                description: Allow port 22 from everywhere and allow port within sg
                region: "{{region}}"
@@ -54,3 +54,14 @@
                    to_port: 22
                    group_id: "{{BastionSGid}}"
       register: yuviStackSG_out
+
+    - name: update security group with its own sg id
+      ec2_group:
+          name: yuviStack-sg
+          description: allow port 22 from everywhere and all port within sg
+          region: "{{region}}"
+          vpc_id: "{{vpcid}}"
+          purge_rules: no
+          rules:
+            - proto: all
+              group_id: "{{yuviStackSG_out.group_id}}"
