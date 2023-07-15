@@ -66,8 +66,8 @@
            - proto: all
              group_id: "{{yuviStackSG_out.group_id}}"
 
-   - name: Creating nginx instance
-     ec2_instance:
+    - name: Creating nginx instance
+      ec2_instance:
          name: "Web01-Nginx"
          key_name: yuvki_2023
          region: "{{region}}"
@@ -81,7 +81,7 @@
            Name: "Web01-Nginx"
            Project: Yuviapp
            Owner: DevOps Team
-     register: web01_out
+      register: web01_out
 
    - name: Creating Tomcat instance
      ec2_instance:
