@@ -24,7 +24,7 @@
       when: yuvistack_2023_out.changed
 
     - name: Create security group for LoadBalancer
-      ec2-group:
+      ec2_group:
          name: yuviELB-sg
          description: Allow port 80 from everywhere and allow port within sg
          region: "{{region}}"
