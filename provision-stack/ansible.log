@@ -1,0 +1,170 @@
+2023-07-17 15:08:54,368 p=1942 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:08:54,368 p=1942 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:08:54,369 p=1942 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:08:54,369 p=1942 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:08:54,383 p=1942 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:08:54,882 p=1942 u=root n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ********************************************************************************************************************************************
+2023-07-17 15:08:54,907 p=1942 u=root n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************************************************************************
+2023-07-17 15:08:56,422 p=1942 u=root n=ansible | ok: [localhost]
+2023-07-17 15:08:56,439 p=1942 u=root n=ansible | TASK [Install  jdk, maven, git] **********************************************************************************************************************************************************************************
+2023-07-17 15:09:01,872 p=1942 u=root n=ansible | ok: [localhost] => (item=git)
+2023-07-17 15:09:44,635 p=1942 u=root n=ansible | changed: [localhost] => (item=openjdk-8-jdk)
+2023-07-17 15:09:56,851 p=1942 u=root n=ansible | changed: [localhost] => (item=maven)
+2023-07-17 15:09:56,869 p=1942 u=root n=ansible | TASK [Clone source code from github] *****************************************************************************************************************************************************************************
+2023-07-17 15:10:02,323 p=1942 u=root n=ansible | changed: [localhost]
+2023-07-17 15:10:02,336 p=1942 u=root n=ansible | TASK [mvn install command to build artifact] *********************************************************************************************************************************************************************
+2023-07-17 15:10:45,595 p=1942 u=root n=ansible | changed: [localhost]
+2023-07-17 15:10:45,632 p=1942 u=root n=ansible | TASK [Copy artifacts to files directory] *************************************************************************************************************************************************************************
+2023-07-17 15:10:46,957 p=1942 u=root n=ansible | changed: [localhost] => (item=/root/yuvi-project/ansible-aws-vpc/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2023-07-17 15:10:46,969 p=1942 u=root n=ansible | TASK [Copy SQL file to files directory] **************************************************************************************************************************************************************************
+2023-07-17 15:10:47,392 p=1942 u=root n=ansible | changed: [localhost]
+2023-07-17 15:10:47,409 p=1942 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:10:47,410 p=1942 u=root n=ansible | localhost                  : ok=6    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-07-17 15:22:24,425 p=7183 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:22:24,425 p=7183 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:22:24,426 p=7183 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:22:24,426 p=7183 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:22:24,437 p=7183 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:22:24,876 p=7183 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:22:24,877 p=7183 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:22:24,877 p=7183 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:25:29,715 p=7193 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:25:29,716 p=7193 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:25:29,716 p=7193 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:25:29,717 p=7193 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:25:29,720 p=7193 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:25:29,889 p=7193 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:25:29,890 p=7193 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:25:29,890 p=7193 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:25:42,308 p=7197 u=root n=ansible | ansible-playbook [core 2.13.10]
+  config file = /root/yuvi-project/ansible-aws-vpc/provision-stack/ansible.cfg
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.8/dist-packages/ansible
+  ansible collection location = /root/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.8.10 (default, May 26 2023, 14:05:08) [GCC 9.4.0]
+  jinja version = 3.1.2
+  libyaml = True
+2023-07-17 15:25:42,309 p=7197 u=root n=ansible | Using /root/yuvi-project/ansible-aws-vpc/provision-stack/ansible.cfg as config file
+2023-07-17 15:25:42,309 p=7197 u=root n=ansible | setting up inventory plugins
+2023-07-17 15:25:42,315 p=7197 u=root n=ansible | host_list declined parsing /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as it did not pass its verify_file() method
+2023-07-17 15:25:42,316 p=7197 u=root n=ansible | script declined parsing /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as it did not pass its verify_file() method
+2023-07-17 15:25:42,316 p=7197 u=root n=ansible | auto declined parsing /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as it did not pass its verify_file() method
+2023-07-17 15:25:42,318 p=7197 u=root n=ansible | toml declined parsing /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as it did not pass its verify_file() method
+2023-07-17 15:25:42,319 p=7197 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:25:42,319 p=7197 u=root n=ansible |   File "/usr/local/lib/python3.8/dist-packages/ansible/inventory/manager.py", line 290, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/usr/local/lib/python3.8/dist-packages/ansible/plugins/inventory/yaml.py", line 112, in parse
+    raise AnsibleParserError('YAML inventory has invalid structure, it should be a dictionary, got: %s' % type(data))
+
+2023-07-17 15:25:42,319 p=7197 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:25:42,319 p=7197 u=root n=ansible |   File "/usr/local/lib/python3.8/dist-packages/ansible/inventory/manager.py", line 290, in parse_source
+    plugin.parse(self._inventory, self._loader, source, cache=cache)
+  File "/usr/local/lib/python3.8/dist-packages/ansible/plugins/inventory/ini.py", line 136, in parse
+    raise AnsibleParserError(e)
+
+2023-07-17 15:25:42,320 p=7197 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:25:42,320 p=7197 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:25:42,324 p=7197 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:25:42,480 p=7197 u=root n=ansible | Loading callback plugin default of type stdout, v2.0 from /usr/local/lib/python3.8/dist-packages/ansible/plugins/callback/default.py
+2023-07-17 15:25:42,492 p=7197 u=root n=ansible | Attempting to use 'default' callback.
+2023-07-17 15:25:42,492 p=7197 u=root n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2023-07-17 15:25:42,492 p=7197 u=root n=ansible | Attempting to use 'junit' callback.
+2023-07-17 15:25:42,492 p=7197 u=root n=ansible | Attempting to use 'minimal' callback.
+2023-07-17 15:25:42,492 p=7197 u=root n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2023-07-17 15:25:42,493 p=7197 u=root n=ansible | Attempting to use 'oneline' callback.
+2023-07-17 15:25:42,493 p=7197 u=root n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2023-07-17 15:25:42,493 p=7197 u=root n=ansible | Attempting to use 'tree' callback.
+2023-07-17 15:25:42,493 p=7197 u=root n=ansible | PLAYBOOK: set_host_ip_map.yml ************************************************************************************************************************************************************************************
+2023-07-17 15:25:42,494 p=7197 u=root n=ansible | 1 plays in set_host_ip_map.yml
+2023-07-17 15:25:42,495 p=7197 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:25:42,495 p=7197 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:25:42,495 p=7197 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:30:32,366 p=7229 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:30:32,367 p=7229 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:30:32,367 p=7229 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:30:32,367 p=7229 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:30:32,371 p=7229 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:30:32,534 p=7229 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:30:32,534 p=7229 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:30:32,534 p=7229 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:38:00,556 p=7251 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:38:00,556 p=7251 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:38:00,556 p=7251 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:38:00,557 p=7251 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:38:00,560 p=7251 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:38:00,726 p=7251 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:38:00,726 p=7251 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:38:00,726 p=7251 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 15:46:30,634 p=7275 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 15:46:30,635 p=7275 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 15:46:30,635 p=7275 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 15:46:30,635 p=7275 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 15:46:30,639 p=7275 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 15:46:30,806 p=7275 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 15:46:30,807 p=7275 u=root n=ansible | skipping: no hosts matched
+2023-07-17 15:46:30,807 p=7275 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
+2023-07-17 16:08:57,809 p=8163 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleUnicode'>
+
+2023-07-17 16:08:57,810 p=8163 u=root n=ansible | [WARNING]:  * Failed to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi with ini plugin: /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi:2: Expected key=value host
+variable assignment, got: 172.20.4.72
+
+2023-07-17 16:08:57,810 p=8163 u=root n=ansible | [WARNING]: Unable to parse /root/yuvi-project/ansible-aws-vpc/provision-stack/inventory-yuvi as an inventory source
+
+2023-07-17 16:08:57,810 p=8163 u=root n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-17 16:08:57,814 p=8163 u=root n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-17 16:08:57,986 p=8163 u=root n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************************************************
+2023-07-17 16:08:57,987 p=8163 u=root n=ansible | skipping: no hosts matched
+2023-07-17 16:08:57,987 p=8163 u=root n=ansible | PLAY RECAP *******************************************************************************************************************************************************************************************************
