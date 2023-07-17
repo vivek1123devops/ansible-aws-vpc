@@ -33,13 +33,6 @@
       tags:
         - package
 
-    - name: Install unixODBC
-      yum:
-        name: unixODBC
-        state: present
-      tags:
-        - package
-
 
     - name: Add an Apt signing key, uses whichever key is at the URL
       apt_key:
