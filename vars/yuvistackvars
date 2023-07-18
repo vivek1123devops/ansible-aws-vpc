@@ -1,7 +1,7 @@
 nginx_ami: ami-0bb220fc4bffd88dd
 tomcat_ami: ami-0bb220fc4bffd88dd
 memcache_ami: ami-0bb220fc4bffd88dd
-rmq_ami: ami-02371361af091464a
+rmq_ami: ami-0e3606a8091a015e5
 mysql_ami: ami-0bb220fc4bffd88dd
 
 # Region Name
