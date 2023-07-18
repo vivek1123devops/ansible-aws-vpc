@@ -12,7 +12,6 @@
       loop:
         - mysql-server
         - mysql-client
-        - python-mysqldb
         - python3-mysqldb
         - libmysqlclient-dev
       ignore_errors: yes
