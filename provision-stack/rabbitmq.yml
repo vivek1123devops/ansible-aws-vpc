@@ -5,7 +5,7 @@
   tasks:
     - name: Install Erlang Repository Package
       apt:
-        deb: https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb
+        deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
       tags:
         - package
 
@@ -32,11 +32,14 @@
       tags:
         - package
 
-    - name: Repository package
+    #- apt_repository:
+        #repo: deb https://dl.bintray.com/rabbitmq/debian bionic main
+        #state: present
+      #tags:
+        #- package
+    - name: Install RabbitMQ Repository Packages
       apt:
         deb: https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.12.2/rabbitmq-server_3.12.2-1_all.deb
-        state: present
-        update_cache: true
       tags:
         - package
 
@@ -60,7 +63,7 @@
     - name: Config setup
       copy:
         content: |
-          [{rabbit, [{loopback_users, []}]}]
+          [{rabbit, [{loopback_users, []}]}].
         dest: /etc/rabbitmq/rabbitmq.config
       notify:
         - Restart RMQ
@@ -92,7 +95,7 @@
         - package
 
   handlers:
-   - name: Restart RMQ
-     service:
-       name: rabbitmq-server
-       state: restarted
+    - name: Restart RMQ
+      service:
+        name: rabbitmq-server
+        state: restarted
