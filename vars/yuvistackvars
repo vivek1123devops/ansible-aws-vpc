@@ -2,7 +2,7 @@ nginx_ami: ami-0bb220fc4bffd88dd
 tomcat_ami: ami-0bb220fc4bffd88dd
 memcache_ami: ami-0bb220fc4bffd88dd
 rmq_ami: ami-0bb220fc4bffd88dd
-mysql_ami: ami-0bb220fc4bffd88dd
+mysql_ami: ami-0430580de6244e02e
 
 # Region Name
 region: "us-east-2"
