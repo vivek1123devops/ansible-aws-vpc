@@ -92,7 +92,7 @@
         - package
 
   handlers:
-    - name: Restart RMQ
-      service:
-        name: rabbitmq-server
-        state: restarted
+   - name: Restart RMQ
+     service:
+       name: rabbitmq-server
+       state: restarted
