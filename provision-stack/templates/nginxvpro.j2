@@ -1,9 +1,9 @@
-upstream yuviapp {
+upstream vproapp {
  server app01:8080;
 }
 server {
   listen 80;
 location / {
-  proxy_pass http://yuviapp;
+  proxy_pass http://vproapp;
 }
 }

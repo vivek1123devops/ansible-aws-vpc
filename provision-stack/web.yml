@@ -32,15 +32,15 @@
     - name: Deploy web config file
       template:
         src: templates/nginxvpro.j2
-        dest: /etc/nginx/sites-available/yuviapp
+        dest: /etc/nginx/sites-available/vproapp
       tags:
         - conf
 
 
     - name: Enable vproapp website
       file:
-        src: /etc/nginx/sites-available/yuviapp
-        dest: /etc/nginx/sites-enabled/yuviapp
+        src: /etc/nginx/sites-available/vproapp
+        dest: /etc/nginx/sites-enabled/vproapp
         state: link
       notify:
         - Restart Nginx
