@@ -32,9 +32,9 @@
       tags:
         - package
 
-    - apt_repository:
-        apt:
-          deb: https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.13/rabbitmq-server_3.9.13-1_all.deb
+    - name: Repository package
+      apt:
+        deb: https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.13/rabbitmq-server_3.9.13-1_all.deb
         state: present
         update_cache: true
       tags:
