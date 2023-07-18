@@ -32,18 +32,12 @@
       tags:
         - package
 
-    #- apt_repository:
-        #repo: deb https://dl.bintray.com/rabbitmq/debian bionic main
-        #state: present
-        #update_cache: true
-      #tags:
-        #- package
-    - name: Add rabbitmq official apt repository
-      apt_repository:
-       repo: 'deb https://dl.bintray.com/rabbitmq/debian {{ ansible_distribution_release|lower }} main'
-       state: present
+    - apt_repository:
+        repo: https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.13/rabbitmq-server_3.9.13-1_all.deb
+        state: present
+        update_cache: true
       tags:
-         - package
+        - package
 
     - name: Install Rabbit MQ
       apt:
